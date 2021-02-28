@@ -35,13 +35,13 @@ script:
       MINOR_RELEASE_VERSION="${PATCH_RELEASE_VERSION%.*}"
       MAJOR_RELEASE_VERSION="${MINOR_RELEASE_VERSION%.*}"
 
-      TAGS=("latest-alpine${ALPINE_VERSION}")
+      TAGS=("latest-go${GO_VERSION}")
       TAGS+=("${PATCH_RELEASE_VERSION}")
-      TAGS+=("${PATCH_RELEASE_VERSION}-go{GO_VERSION}")
+      TAGS+=("${PATCH_RELEASE_VERSION}-go${GO_VERSION}")
       TAGS+=("${MINOR_RELEASE_VERSION}")
-      TAGS+=("${MINOR_RELEASE_VERSION}-go{GO_VERSION}")
+      TAGS+=("${MINOR_RELEASE_VERSION}-go${GO_VERSION}")
       TAGS+=("${MAJOR_RELEASE_VERSION}")
-      TAGS+=("${MAJOR_RELEASE_VERSION}-go{GO_VERSION}")
+      TAGS+=("${MAJOR_RELEASE_VERSION}-go${GO_VERSION}")
 
       docker build -t "${IMAGE_NAME}:latest" \
         --build-arg GO_VERSION="${GO_VERSION}" \
