@@ -56,7 +56,7 @@ script:
         docker tag "${IMAGE_NAME}:latest" "${IMAGE_NAME}:${TAG}"
       done
 
-      if [[ "${TRAVIS_BRANCH}" == "master" ]] && [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
+      if [[ "${TRAVIS_BRANCH}" == "main" ]] && [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
         for TAG in "${TAGS[@]}" ; do
           docker push "${IMAGE_NAME}:${TAG}"
         done
