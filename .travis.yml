@@ -30,7 +30,7 @@ script:
         cut -d 'v' -f 2
     }
 
-    ALPINE_VERSIONS=("12")
+    ALPINE_VERSIONS=("3.12")
 
     for ALPINE_VERSION in "${ALPINE_VERSIONS[@]}"; do
       PATCH_RELEASE_VERSION="$(get_latest_release)"
