@@ -28,9 +28,9 @@ script:
         cut -d 'v' -f 2
     }
 
-    ALPINE_VERSIONS=("1.16")
+    GO_VERSIONS=("1.16")
 
-    for GO_VERSION in "${GO_VERSION[@]}"; do
+    for GO_VERSION in "${GO_VERSIONS[@]}"; do
       PATCH_RELEASE_VERSION="$(get_latest_release)"
       MINOR_RELEASE_VERSION="${PATCH_RELEASE_VERSION%.*}"
       MAJOR_RELEASE_VERSION="${MINOR_RELEASE_VERSION%.*}"
