@@ -39,11 +39,11 @@ script:
 
       TAGS=("latest-alpine{ALPINE_VERSION}")
       TAGS+=("${PATCH_RELEASE_VERSION}")
-      TAGS+=("${PATCH_RELEASE_VERSION}-alpine{ALPINE_VERSION}")
+      TAGS+=("${PATCH_RELEASE_VERSION}-alpine${ALPINE_VERSION}")
       TAGS+=("${MINOR_RELEASE_VERSION}")
-      TAGS+=("${MINOR_RELEASE_VERSION}-alpine{ALPINE_VERSION}")
+      TAGS+=("${MINOR_RELEASE_VERSION}-alpine${ALPINE_VERSION}")
       TAGS+=("${MAJOR_RELEASE_VERSION}")
-      TAGS+=("${MAJOR_RELEASE_VERSION}-alpine{ALPINE_VERSION}")
+      TAGS+=("${MAJOR_RELEASE_VERSION}-alpine${ALPINE_VERSION}")
 
       docker build -t "${IMAGE_NAME}:latest" \
         --build-arg ALPINE_VERSION="${ALPINE_VERSION}" \
