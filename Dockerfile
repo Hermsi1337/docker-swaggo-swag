@@ -1,5 +1,5 @@
-ARG         ALPINE_VERSION=3.12
-FROM        alpine:${ALPINE_VERSION}
+ARG         GO_VERSION=1.16
+FROM        golang:${GO_VERSION}-alpine
 
 ARG         SWAGGO_SWAG_VERSION=1.7.0
 ENV         SWAGGO_SWAG_VERSION="${SWAGGO_SWAG_VERSION}" \
@@ -9,6 +9,7 @@ ENV         SWAGGO_SWAG_VERSION="${SWAGGO_SWAG_VERSION}" \
 ADD         https://github.com/swaggo/swag/releases/download/v${SWAGGO_SWAG_VERSION}/swag_${SWAGGO_SWAG_VERSION}_Linux_x86_64.tar.gz /tmp/swag.tar.gz
 
 RUN         set -xe && \
+            apk add --no-cache git make && \
             tar -xvzf /tmp/swag.tar.gz swag -C /usr/local/bin/ && \
             chmod +x /usr/local/bin/swag && \
             addgroup -g "${SWAGGO_SWAG_UID}" -S "${SWAGGO_SWAG_USER}" && \
